@@ -1,0 +1,32 @@
+<header data-fls-header class="header">
+  <div class="header__container">
+    <div class="header__body">
+      <if condition="'[[home]]' === 'true'">
+        <img class="header__logo" src="@img/logo__.png" alt="Logo">
+      </if>
+      <else>
+        <a href="index.html" class="header__link-logo">
+          <img class="header__logo" src="@img/logo__.png" alt="Logo">
+        </a>
+      </else>
+      <include src="@components/layout/menu/menu.html" locals='{"active":"[[active]]"}'></include>
+      <!-- Поиск -->
+      <!-- <div class="legal-header__search">
+        <form class="search-form" id="searchForm">
+          <div class="search-form__container">
+            <input type="text" class="search-form__input" placeholder="Поиск по сайту..." id="searchInput"
+              autocomplete="off">
+            <button type="submit" class="search-form__button" aria-label="Поиск">
+              <svg class="search-form__icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div> -->
+    </div>
+  </div>
+</header>

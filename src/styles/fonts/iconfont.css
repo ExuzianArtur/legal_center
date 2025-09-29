@@ -1,0 +1,20 @@
+@font-face { 
+	font-family: "iconfont"; 
+	font-display: swap;
+	src: url("D://project/brother_site/src/assets/svgicons/preview/iconfont.woff2?684d9ded98c5c7217badbc05bec5e257") format("woff2"); 
+} 
+[class*="--icon-"]::before{
+	font-family: iconfont; 
+}
+	[class*="--icon-telephone"]::before { 
+		content: "\f101"; 
+	} 
+	[class*="--icon-s-wu"]::before { 
+		content: "\f102"; 
+	} 
+	[class*="--icon-s-tg"]::before { 
+		content: "\f103"; 
+	} 
+	[class*="--icon-mail"]::before { 
+		content: "\f104"; 
+	} 

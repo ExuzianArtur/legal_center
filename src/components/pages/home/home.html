@@ -1,0 +1,236 @@
+<script type="module" src="@components/pages/home/home.js"></script>
+<link rel="stylesheet" href="@components/pages/home/home.scss">
+
+<main class="page page--home">
+  <include data-fls-scrolltop src="@components/custom/scrolltop/scrolltop.html"></include>
+  <include src="@components/custom/socialbtn/socialbtn.html"></include>
+
+  <section class="page__hero hero" id="home">
+    <div class="hero__picture">
+      <img class="hero__logo" src="@img/logo__.png" alt="logo-hero">
+    </div>
+    <div class="hero__title">
+      <h1>Многофункциональный правовой центр</h1>
+    </div>
+    <div data-fls-dynamic=".header__body, 768, 1," class="hero__btn">
+      <a data-fls-scrollto=".services-section" data-fls-watcher href="#" class="btn">Услуги</a>
+    </div>
+  </section>
+  <section class="about-section">
+    <div class="about-section__container">
+      <div class="about-section__content">
+        <h2 class="about-section__title">О нашей фирме</h2>
+        <div class="about-section__text">
+          <p class="about-section__paragraph">
+            Мы осуществляем деятельность в предоставлении различных услуг
+            уже с 2015 года. В период развития принимался во внимание тот
+            фактор, что необходимо получить опыт и качество при
+            предоставлении услуги, а затем, только его внедрение. Таким
+            образом, сложился список тех услуг, в которых имеются знание,
+            опыт и уверенность в его достижении. Главными задачей и целями,
+            являются не привлечение максимального количества заказчиков и
+            клиентов, а качественное достижение результата с применением
+            индивидуального подхода к каждому.
+          </p>
+          <p class="about-section__paragraph">
+            Мы гордимся безупречной репутацией, профессионализмом сотрудников и высоким процентом успешных исходов
+            дел. Доверяя нам свои вопросы, вы получаете не только квалифицированную юридическую помощь, но и
+            уверенность в защите своих прав и интересов.
+          </p>
+        </div>
+        <div class="about-section__stats">
+          <div class="about-section__stat-item">
+            <span class="about-section__stat-number">10+</span>
+            <span class="about-section__stat-label">лет опыта</span>
+          </div>
+          <div class="about-section__stat-item">
+            <span class="about-section__stat-number">1000+</span>
+            <span class="about-section__stat-label">клиентов</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-section__image">
+        <img src="@img/about.jpg" alt="Юридическая практика" class="about-section__img">
+      </div>
+    </div>
+  </section>
+  <section class="news-section" id="news-section">
+    <div class="news-section__container">
+      <h2 class="news-section__title">Новости компании</h2>
+
+      <div class="news-section__grid">
+        <!-- Карточка новости 1 -->
+        <article class="news-card" data-news-id="1">
+          <div class="news-card__image">
+            <img src="@img/news/news_01.jpg" alt="Изменения в налоговом законодательстве" class="news-card__img">
+          </div>
+          <div class="news-card__content">
+            <h3 class="news-card__title">Новые изменения в налоговом законодательстве 2025 года</h3>
+            <p class="news-card__excerpt">С 1 января 2025 года вступают в силу важные изменения в налоговом кодексе,
+              которые затронут деятельность большинства компаний...</p>
+            <div class="news-card__meta">
+              <span class="news-card__date">15 марта 2025</span>
+              <span class="news-card__category">Налоги</span>
+            </div>
+            <button class="news-card__btn" data-news-target="1">Узнать больше</button>
+          </div>
+        </article>
+
+        <!-- Карточка новости 2 -->
+        <article class="news-card" data-news-id="2">
+          <div class="news-card__image">
+            <img src="@img/news/news_02.png" alt="Конференция юристов" class="news-card__img">
+          </div>
+          <div class="news-card__content">
+            <h3 class="news-card__title">Фирма приняла участие в международной конференции юристов</h3>
+            <p class="news-card__excerpt">Наши ведущие специалисты выступили с докладом на ежегодной конференции по
+              международному праву...</p>
+            <div class="news-card__meta">
+              <span class="news-card__date">10 марта 2025</span>
+              <span class="news-card__category">События</span>
+            </div>
+            <button class="news-card__btn" data-news-target="2">Узнать больше</button>
+          </div>
+        </article>
+
+        <!-- Карточка новости 3 -->
+
+      </div>
+    </div>
+    <!-- Модальное окно -->
+    <div class="modal" id="newsModal">
+      <div class="modal__overlay"></div>
+      <div class="modal__content">
+        <button class="modal__close" id="closeModal">
+          <span>&times;</span>
+        </button>
+        <div class="modal__body" id="modalBody">
+          <!-- Содержимое модального окна будет подставляться динамически -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="services-section" id="services-section">
+    <div class="services-section__container">
+      <h2 class="services-section__title">Наши услуги</h2>
+
+      <div class="services-carousel">
+        <div class="services-carousel__wrapper">
+          <div class="services-carousel__track">
+            <!-- Карточка услуги 1 -->
+            <article class="service-card">
+              <div class="service-card__image">
+                <img src="@img/services/01.avif" alt="Представление интересов в судах" class="service-card__img">
+              </div>
+              <div class="service-card__content">
+                <h3 class="service-card__title">Представление интересов в судах</h3>
+                <p class="service-card__description">Профессиональное ведение дел в судах общей юрисдикции и арбитражных
+                  судах любой сложности.</p>
+                <button class="service-card__btn" data-service-target="1">Подробнее</button>
+              </div>
+            </article>
+
+            <!-- Карточка услуги 2 -->
+            <article class="service-card">
+              <div class="service-card__image">
+                <img src="@img/services/02.avif" alt="Сбор пакета документов" class="service-card__img">
+              </div>
+              <div class="service-card__content">
+                <h3 class="service-card__title">Сбор пакета документов</h3>
+                <p class="service-card__description">Подготовка и оформление полного пакета документов для различных
+                  юридических процедур.</p>
+                <button class="service-card__btn" data-service-target="2">Подробнее</button>
+              </div>
+            </article>
+
+            <!-- Карточка услуги 3 -->
+            <article class="service-card">
+              <div class="service-card__image">
+                <img src="@img/services/03.jpg" alt="Защита прав потребителей" class="service-card__img">
+              </div>
+              <div class="service-card__content">
+                <h3 class="service-card__title">Защита прав потребителей</h3>
+                <p class="service-card__description">Помощь в защите прав потребителей, возврат товаров, взыскание
+                  компенсаций.</p>
+                <button class="service-card__btn" data-service-target="3">Подробнее</button>
+              </div>
+            </article>
+
+            <!-- Карточка услуги 4 -->
+            <article class="service-card">
+              <div class="service-card__image">
+                <img src="@img/services/04.avif" alt="Электронный ЭПТС" class="service-card__img">
+              </div>
+              <div class="service-card__content">
+                <h3 class="service-card__title">Электронный ЭПТС</h3>
+                <p class="service-card__description">Оформление электронного паспорта транспортного средства в
+                  кратчайшие сроки.</p>
+                <button class="service-card__btn" data-service-target="4">Подробнее</button>
+              </div>
+            </article>
+
+            <!-- Карточка услуги 5 -->
+            <article class="service-card">
+              <div class="service-card__image">
+                <img src="@img/services/05.avif" alt="Возмещение вреда здоровью и убытков" class="service-card__img">
+              </div>
+              <div class="service-card__content">
+                <h3 class="service-card__title">Возмещение вреда здоровью и убытков</h3>
+                <p class="service-card__description">Юридическая помощь во взыскании компенсаций за причинение вреда
+                  здоровью и материального ущерба.</p>
+                <button class="service-card__btn" data-service-target="5">Подробнее</button>
+              </div>
+            </article>
+
+            <!-- Карточка услуги 6 -->
+            <article class="service-card">
+              <div class="service-card__image">
+                <img src="@img/services/06.avif" alt="Открытие, ведение и закрытие ИП и юридических лиц"
+                  class="service-card__img">
+              </div>
+              <div class="service-card__content">
+                <h3 class="service-card__title">Открытие, ведение и закрытие ИП и юридических лиц</h3>
+                <p class="service-card__description">Полный комплекс услуг по регистрации, сопровождению и ликвидации
+                  бизнеса.</p>
+                <button class="service-card__btn" data-service-target="6">Подробнее</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Кнопки навигации -->
+        <div class="services-carousel__controls">
+          <button class="services-carousel__btn services-carousel__btn--prev" id="prevBtn">
+            <span>←</span> Назад
+          </button>
+          <div class="services-carousel__dots" id="carouselDots">
+            <!-- Точки будут генерироваться динамически -->
+          </div>
+          <button class="services-carousel__btn services-carousel__btn--next" id="nextBtn">
+            Вперед <span>→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальное окно для услуг -->
+    <div class="modal" id="serviceModal">
+      <div class="modal__overlay"></div>
+      <div class="modal__content">
+        <button class="modal__close" id="closeServiceModal">
+          <span>&times;</span>
+        </button>
+        <div class="modal__body" id="serviceModalBody">
+          <!-- Содержимое модального окна будет подставляться динамически -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="contact" class="contacts-section">
+    <include data-fls-yandexmap src="@components/custom/yandexmap/yandexmap.html"></include>
+  </section>
+
+
+</main>

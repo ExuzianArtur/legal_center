@@ -1,0 +1,257 @@
+.contacts-section {
+  background-color: #ffffff;
+  padding: 80px 20px;
+  font-family: 'Merriweather', Georgia, serif;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 32px;
+    color: #0a1f3c;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: #c4a46e;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+}
+
+.yandex-map {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(10, 31, 60, 0.1);
+  height: 500px;
+
+  @media (max-width: 768px) {
+    height: 400px;
+  }
+
+  @media (max-width: 480px) {
+    height: 300px;
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+  }
+
+  &__loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  &__error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    text-align: center;
+    padding: 20px;
+  }
+
+  &__retry-btn {
+    background-color: #0a1f3c;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #c4a46e;
+    }
+  }
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #0a1f3c;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.contact-info {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 30px;
+  height: fit-content;
+
+  @media (max-width: 992px) {
+    padding: 25px;
+  }
+
+  &__item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__icon {
+    font-size: 20px;
+    min-width: 24px;
+    color: #0a1f3c;
+  }
+
+
+  &__content {
+    flex: 1;
+  }
+
+  &__label {
+    font-size: 12px;
+    color: #0a1f3c;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
+
+  &__value {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #333333;
+    margin-bottom: 3px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.transport-list {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0;
+
+  li {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 3px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: "•";
+      color: #0a1f3c;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+  }
+}
+
+.route-buttons {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.route-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px;
+  border: 2px solid;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: left;
+
+  &__icon {
+    font-size: 18px;
+  }
+
+  &__text {
+    flex: 1;
+  }
+
+  &--yandex {
+    background-color: #ffcc00;
+    border-color: #ffcc00;
+    color: #000000;
+
+    &:hover {
+      background-color: #e6b800;
+      border-color: #e6b800;
+      transform: translateY(-2px);
+    }
+  }
+
+  &--google {
+    background-color: #4285f4;
+    border-color: #4285f4;
+    color: white;
+
+    &:hover {
+      background-color: #3367d6;
+      border-color: #3367d6;
+      transform: translateY(-2px);
+    }
+  }
+}

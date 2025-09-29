@@ -1,0 +1,269 @@
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Підключення CSS-змінних
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// @use "includes/variables.css";
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Підключення загальних віддалених шрифтів (Google Fonts)
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Стилі тега BODY
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+body {
+	min-width: #{$minWidth}px;
+	color: $mainColor;
+	font-family: $fontFamily;
+	font-size: #{$fontSize}px;
+
+	// Скролл заблоковано
+	[data-fls-scrolllock] & {
+		overflow: hidden;
+		touch-action: none;
+		overscroll-behavior: none;
+	}
+
+	// Сайт завантажений
+	[data-fls-loaded] & {}
+}
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Оболонка WRAPPER
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.wrapper {
+
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: clip;
+
+	// Притискаємо footer
+	>main {
+		flex: 1 1 auto;
+	}
+
+	// Фікс для слайдерів
+	>* {
+		min-width: 0;
+	}
+}
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Обмежуючий контейнер
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Стилі будуть застосовуватись до
+// всіх класів, що містять *__container
+// Наприклад header__container, main__container і т.п.
+// Сніппет (HTML): cnt
+
+@if ($responsiveType==1) {
+
+	// Чуйна
+	[class*="__container"] {
+		@if ($maxWidthContainer>0) {
+			max-width: #{$containerWidth}px;
+			margin: 0 auto;
+		}
+
+		@if ($containerPadding>0) {
+			@if ($maxWidthContainer>0) {
+				padding-left: #{math.div($containerPadding, 2)}px;
+				padding-right: #{math.div($containerPadding, 2)}px;
+			}
+
+			@else {
+				@include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
+				@include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
+			}
+		}
+	}
+}
+
+@else {
+
+	// Брейк-поїнтами
+	[class*="__container"] {
+		margin: 0 auto;
+
+		@if ($maxWidthContainer>0) {
+			max-width: #{$maxWidthContainer}px;
+		}
+
+		@else {
+			@if ($containerPadding>0) {
+				padding-left: #{math.div($containerPadding, 2)}px;
+				padding-right: #{math.div($containerPadding, 2)}px;
+			}
+		}
+
+		@media (max-width: toEm($pc)) {
+			max-width: 970px;
+		}
+
+		@media (max-width: toEm($tablet)) {
+			max-width: 750px;
+		}
+
+		@media (max-width: toEm($mobile)) {
+			max-width: none;
+
+			@if ($containerPadding>0 and $maxWidthContainer>0) {
+				padding-left: #{math.div($containerPadding, 2)}px;
+				padding-right: #{math.div($containerPadding, 2)}px;
+			}
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Загальні стилі для усього сайту
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* {
+	scroll-behavior: smooth;
+}
+
+
+.legal,
+.immigration,
+.other {
+	position: relative;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	align-self: center;
+	justify-content: center;
+	height: 100%;
+
+	// .civil__body
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		justify-content: center;
+		padding: 150px 0;
+		@include adaptiveValue("padding-left", 50, 0);
+
+	}
+
+	// .civil__title
+
+	&__title {
+		color: #0a1f3c;
+		margin-bottom: 30px;
+		font-weight: 700;
+		position: relative;
+		padding-bottom: 15px;
+		@include adaptiveValue("font-size", 40, 30);
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 80px;
+			height: 3px;
+			background-color: #c4a46e;
+		}
+	}
+
+	// .civil__text
+
+	&__text {
+		line-height: 1.8;
+		color: #333333;
+		margin-bottom: 20px;
+		text-align: justify;
+		width: 50%;
+		@include adaptiveValue("font-size", 25, 16);
+
+		@media (max-width: toEm($mobile)) {
+			width: 100%;
+		}
+	}
+
+	.spollers {
+
+		// .spollers_content
+
+		&_content {
+			width: 100px;
+		}
+
+		// .spollers__item
+
+		&__item {}
+
+		// .spollers__title
+
+		&__title {
+			color: #333333;
+		}
+
+		// .spollers__body
+
+		&__body {}
+	}
+
+}
+
+
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
+.info-block {
+	display: flex;
+	max-width: 900px;
+	margin: 0 auto;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+	line-height: 1.6;
+	padding: 100px 30px 30px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.info-block h2 {
+	position: relative;
+	margin-top: 0;
+	color: #0a1f3c;
+	font-weight: 600;
+	font-size: 40px;
+	margin-bottom: 40px;
+
+	&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 80px;
+			height: 3px;
+			background-color: #c4a46e;
+		}
+}
+
+.info-block p {
+	color: #0a2a66;
+}
+
+.info-block ul {
+	padding-left: 20px;
+	margin: 10px 0 20px;
+}
+
+.info-block ul li {
+	margin-bottom: 8px;
+	color: #000;
+}
+
+.highlight {
+	font-weight: bold;
+	color:#0a2a66 ;
+}

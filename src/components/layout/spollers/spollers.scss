@@ -1,0 +1,134 @@
+// Базові стилі спойлерів
+// Сніппет (HTML): spoller
+
+// Блок зі спойлерами
+
+.legal,
+.immigration,
+.other {
+	// .legal__spollers
+
+	&__spollers {
+		display: grid;
+		gap: 15px;
+		justify-content: center;
+		margin-bottom: 30px;
+		align-items: center;
+		align-content: center;
+		align-self: center;
+	}
+
+}
+
+.spollers {
+
+	// .spollers__item
+
+	&__item {
+		font-size: toRem(20);
+	}
+
+	// .spollers__title
+
+	&__title {
+		cursor: default;
+		text-align: center;
+		border: 1px solid #c4a46e;
+		padding: 10px 150px;
+		border-radius: 5px;
+		color: #0a1f3c;
+		position: relative;
+		list-style: none;
+		@include adaptiveValue("padding-left", 150, 0);
+		@include adaptiveValue("padding-right", 150, 0);
+		@include adaptiveValue("font-size", 20, 13);
+		@include adaptiveValue("width", 700, 300);
+
+		&::marker,
+		&::-webkit-details-marker {
+			display: none;
+		}
+
+		.--spoller-init & {
+			cursor: pointer;
+
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				right: 10px;
+				top: 50%;
+				background-color: #c4a46e;
+				height: 2px;
+				width: 15px;
+				transition: transform 0.5s ease 0s;
+				@include adaptiveValue("width", 15, 10);
+			}
+
+			&::before {
+				transform: translate(-75%, -50%) rotate(40deg);
+			}
+
+			&::after {
+				transform: translate(0, -50%) rotate(-40deg);
+			}
+
+			&.--spoller-active {
+				&::before {
+					transform: translateX(-75%) rotate(-40deg);
+				}
+
+				&::after {
+					transform: rotate(40deg);
+				}
+			}
+		}
+	}
+
+	// .spollers__body
+
+	&__body {
+		padding: 20px;
+		width: 700px;
+		border-radius: 5px;
+		color: #0a1f3c;
+		border: 1px solid #c4a46e;
+		@include adaptiveValue("width", 700, 300);
+	}
+}
+
+
+
+
+
+// .--spoller-init & {
+// 	position: relative;
+// 	width: 100%;
+// 	text-align: left;
+// 	&::before,
+// 	&::after {
+// 		content: "";
+// 		position: absolute;
+// 		right: 0;
+// 		top: toRem(12);
+// 		height: toRem(1);
+// 		transition: all 0.3s ease 0s;
+// 		width: toRem(10);
+// 		background-color: #000;
+// 	}
+// 	&::before {
+// 		transform: rotate(40deg);
+// 		right: toRem(7);
+// 	}
+// 	&::after {
+// 		transform: rotate(-40deg);
+// 	}
+// }
+// &.--spoller-active {
+// 	&::before {
+// 		transform: rotate(-40deg);
+// 	}
+// 	&::after {
+// 		transform: rotate(40deg);
+// 	}
+// }

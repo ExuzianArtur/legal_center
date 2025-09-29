@@ -1,0 +1,270 @@
+.menu {
+
+	&__list {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 20px;
+
+		@media (max-width: 768px) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	&__body {
+
+		@media (max-width: toEm($mobile)) {
+			position: fixed;
+			width: 100%;
+			height: 100svh;
+			background-color: #0a1f3c;
+			left: 100%;
+			top: 0;
+			overflow: auto;
+			padding: 110px 15px 30px 15px;
+			transition: left 0.3s;
+
+			&::before {
+				content: "";
+				position: fixed;
+				width: 100%;
+				height: 70px;
+				left: -100%;
+				top: 0;
+				transition: left 0.3s;
+				z-index: 2;
+			}
+
+			[data-fls-menu-open] & {
+				left: 0;
+
+				&::before {
+					left: 0;
+				}
+			}
+		}
+	}
+
+	&__item {
+		position: relative;
+		display: flex;
+
+
+		@media (min-width: 769px) {
+			&:hover {
+				.menu__dropdown {
+					opacity: 1;
+					visibility: visible;
+					transform: translateY(0);
+				}
+			}
+		}
+
+		@media (max-width: 768px) {
+			width: 100%;
+		}
+	}
+
+	&__link {
+		position: relative;
+		display: flex;
+		align-items: center;
+		font-size: 25px;
+		text-decoration: none;
+		font-weight: 500;
+		color: #c4a46e;
+		transition: color 0.5s ease;
+
+		// underline animates from center to edges
+		&::after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 2px;
+			background-color: #c4a46e;
+			bottom: 0;
+			left: 50%;
+			transition: width 0.35s ease, left 0.35s ease;
+		}
+
+		// desktop / hover-capable only
+		@media (any-hover: hover) and (min-width: 769px) {
+			&:hover {
+				color: #fff;
+			}
+
+			&:hover::after {
+				bottom: -5px;
+				left: 0;
+				width: 100%;
+			}
+		}
+
+		// mobile layout adjustments
+
+
+		&--active {
+			font-weight: 700;
+
+			// show underline as active state
+			&::after {
+				left: 0;
+				width: 100%;
+			}
+		}
+
+		&--dropdown {
+			&::after {
+				content: '';
+				font-size: 10px;
+				margin-left: 8px;
+				transition: transform 0.8s ease;
+
+				@media (max-width: 768px) {
+					font-size: 15px;
+				}
+			}
+		}
+	}
+
+
+	.icon-menu {
+		display: none;
+
+		@media (max-width: toEm($mobile)) {
+			display: block;
+			position: relative;
+			width: toRem(30);
+			height: toRem(18);
+			z-index: 5;
+
+			@media (any-hover: none) {
+				cursor: default;
+			}
+
+			span,
+			&::before,
+			&::after {
+				content: "";
+				transition: all 0.3s ease 0s;
+				right: 0;
+				bottom: 20;
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background-color: #c4a46e;
+			}
+
+			&::before {
+				top: 0;
+			}
+
+			&::after {
+				bottom: 0;
+			}
+
+			span {
+				top: calc(50% - 1px);
+			}
+
+			[data-fls-menu-open] & {
+				span {
+					width: 0;
+				}
+
+				&::before {
+					top: calc(50% - 1px);
+					transform: rotate(-45deg);
+				}
+
+				&::after {
+					bottom: calc(50% - 1px);
+					transform: rotate(45deg);
+				}
+			}
+		}
+	}
+
+	&__dropdown {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: #0a1f3c;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+		border-radius: 8px;
+		padding: 10px 0;
+		min-width: 250px;
+		opacity: 1;
+		visibility: hidden;
+		transform: translateY(10px);
+		transition: all 0.3s ease;
+		z-index: 1000;
+
+
+		@media (max-width: 768px) {
+			position: static;
+			opacity: 1;
+			visibility: visible;
+			transform: none;
+			box-shadow: none;
+			margin-left: 20px;
+			display: none;
+
+			.menu__item.active>& {
+				display: block;
+			}
+
+		}
+	}
+
+	&__dropdown-item {
+		&:last-child {
+			.menu__dropdown-link {
+				border-bottom: none;
+			}
+
+		}
+	}
+
+	&__dropdown-link {
+		display: block;
+		color: #c4a46e;
+		text-decoration: none;
+		border-bottom: 1px solid #c4a46e;
+		padding: 10px 12px;
+
+		&:hover {
+			color: #fff;
+			background-color: rgba(10, 31, 60, 0.05);
+			padding-left: 25px;
+
+		}
+
+		@media (max-width: 768px) {
+			font-size: 20px;
+			border-bottom: none;
+			padding: 10px 0;
+		}
+	}
+
+
+
+
+	// Анимация для дропдауна
+	@keyframes dropdownShow {
+		from {
+			opacity: 1;
+			transform: translateY(-10px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.menu__dropdown {
+		animation: dropdownShow 0.8s ease;
+	}
+}

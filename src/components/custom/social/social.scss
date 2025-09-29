@@ -1,0 +1,155 @@
+.social-links {
+  font-family: 'Merriweather', Georgia, serif;
+
+  &__title {
+    font-size: 18px;
+    color: #0a1f3c;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+      gap: 10px;
+    }
+  }
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border: 2px solid;
+  min-width: 140px;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 10px 15px;
+    min-width: 120px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 8px 12px;
+    min-width: 100px;
+    font-size: 12px;
+  }
+
+  &__icon {
+    transition: transform 0.3s ease;
+  }
+
+  &__text {
+    @media (max-width: 480px) {
+      display: none;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    .social-link__icon {
+      transform: scale(1.1);
+    }
+  }
+
+  // WhatsApp
+  &--whatsapp {
+    background-color: #25D366;
+    border-color: #25D366;
+
+    &:hover {
+      background-color: #128C7E;
+      border-color: #128C7E;
+      color: #c4a46e;
+    }
+  }
+
+  // Telegram
+  &--telegram {
+    background-color: #0088cc;
+    border-color: #0088cc;
+
+    &:hover {
+      background-color: #006699;
+      border-color: #006699;
+      color: #c4a46e;
+    }
+  }
+
+
+  // Мобильная версия - только иконки
+  @media (max-width: 480px) {
+    padding: 12px;
+    min-width: auto;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+
+    &__text {
+      display: none;
+    }
+  }
+}
+
+// Альтернативный стиль - только иконки
+.social-links--icons-only {
+  .social-link {
+    padding: 12px;
+    min-width: auto;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+
+    &__text {
+      display: none;
+    }
+  }
+}
+
+// Вертикальное расположение
+.social-links--vertical {
+  .social-links__container {
+    flex-direction: column;
+  }
+
+  .social-link {
+    justify-content: flex-start;
+  }
+}
+
+// Анимации
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.social-link--whatsapp:hover {
+  animation: pulse 1s infinite;
+}

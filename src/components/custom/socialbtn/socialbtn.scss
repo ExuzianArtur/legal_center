@@ -1,0 +1,287 @@
+ .floating-contact {
+   position: fixed;
+   left: 30px;
+   top: 50%;
+   transform: translateY(-50%);
+   z-index: 900;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   gap: 15px;
+ }
+
+ /* Основная кнопка */
+ .contact-main-btn {
+   width: 60px;
+   height: 60px;
+   background: linear-gradient(90deg, #0a1f3c);
+   color: white;
+   opacity: 0.8;
+   border: none;
+   border-radius: 50%;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 35px;
+   box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+   transition: all 0.3s ease;
+   z-index: 2;
+   animation: pulse 2s infinite;
+   position: relative;
+   animation: colorChange 4s infinite;
+ }
+
+
+
+ .contact-main-btn:hover {
+   background: linear-gradient(90deg, #c4a46e);
+   transform: scale(1.1);
+   box-shadow: 0 10px 25px rgba(138, 43, 226, 0.6);
+ }
+
+ .contact-main-btn.active {
+   transform: rotate(45deg) scale(1.1);
+   background: linear-gradient(90deg, #c4a46e, #c4a46e);
+   animation: normal;
+ }
+
+ /* Контейнер для вращающихся иконок */
+ .orbit-container {
+   position: absolute;
+   width: 70px;
+   height: 70px;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 1;
+   transition: opacity 0.3s ease;
+ }
+
+ /* Анимированные иконки вокруг основной кнопки */
+ .orbit-icons {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   left: 50%;
+   top: 50%;
+   animation: rotate 8s linear infinite;
+   transform-origin: center;
+ }
+
+ .orbit-icon {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 0.7rem;
+ }
+
+ .orbit-icon.whatsapp {
+   
+   color: #25d366;
+   top: 0;
+   left: 50%;
+   font-size: 23px;
+   transform: translate(-50%, -50%);
+ }
+
+ .orbit-icon.telegram {
+   color:#0088cc;
+   bottom: 0;
+   left: 50%;
+   font-size: 23px;
+   transform: translate(-50%, 50%);
+ }
+
+ /* Скрытие иконок при активной кнопке */
+ .contact-main-btn.active .orbit-container {
+   opacity: 0;
+ }
+
+ /* Кнопки социальных сетей */
+ .social-buttons {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   opacity: 0;
+   visibility: hidden;
+   transform: translateX(-20px);
+   transition: all 0.3s ease;
+ }
+
+ .social-buttons.active {
+   opacity: 1;
+   visibility: visible;
+   transform: translateX(0);
+ }
+
+ .social-btn {
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 1.3rem;
+   color: white;
+   background-color: #c4a46e;
+   text-decoration: none;
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+   transition: all 0.3s ease;
+   position: relative;
+   
+ }
+.social-btn__wu{
+background-color: #25d366;
+}
+
+.social-btn__tg{
+background-color: #0088cc;
+}
+
+ .social-btn:hover {
+   transform: scale(1.1);
+   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+ }
+
+ .whatsapp-btn {
+   background: linear-gradient(90deg, #fff);
+ }
+
+ .telegram-btn {
+   background: linear-gradient(90deg, #0088cc, #006699);
+ }
+
+ /* Анимации */
+ @keyframes rotate {
+   from {
+     transform: translate(-50%, -50%) rotate(0deg);
+   }
+
+   to {
+     transform: translate(-50%, -50%) rotate(360deg);
+   }
+ }
+
+ @keyframes pulse {
+   0% {
+     box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.7);
+   }
+
+   70% {
+     box-shadow: 0 0 0 15px rgba(138, 43, 226, 0);
+   }
+
+   100% {
+     box-shadow: 0 0 0 0 rgba(138, 43, 226, 0);
+   }
+ }
+
+ @keyframes colorChange {
+   0% {
+     color: #fff;
+   }
+
+   50% {
+     color: #c4a46e;  
+   }
+
+   100% {
+     color: #fff
+   }
+ }
+
+ .contact-main-btn.animate {
+   animation: pulse 2s infinite;
+ }
+
+ /* Адаптация для мобильных устройств */
+ @media (max-width: 768px) {
+   .floating-contact {
+     left: 20px;
+   }
+
+   .contact-main-btn {
+     width: 55px;
+     height: 55px;
+     font-size: 1.3rem;
+   }
+
+   .orbit-container {
+     width: 65px;
+     height: 65px;
+   }
+
+   .orbit-icon {
+     width: 18px;
+     height: 18px;
+     font-size: 0.6rem;
+   }
+
+   .social-btn {
+     width: 45px;
+     height: 45px;
+     font-size: 1.2rem;
+   }
+
+   .orbit-icon.whatsapp {
+
+     font-size: 18px;
+
+   }
+
+   .orbit-icon.telegram {
+     font-size: 18px;
+   }
+ }
+
+ @media (max-width: 480px) {
+   .floating-contact {
+     left: 15px;
+   }
+
+   .contact-main-btn {
+     width: 50px;
+     height: 50px;
+     font-size: 1.2rem;
+   }
+
+   .orbit-container {
+     width: 60px;
+     height: 60px;
+   }
+
+   .orbit-icon {
+     width: 16px;
+     height: 16px;
+     font-size: 0.5rem;
+   }
+
+   .social-btn {
+     width: 40px;
+     height: 40px;
+     font-size: 1.1rem;
+   }
+ }
+
+
+
+ /* Анимации */
+ @keyframes gradient {
+   0% {
+     background-position: 0% 50%;
+   }
+
+   50% {
+     background-position: 100% 50%;
+   }
+
+   100% {
+     background-position: 0% 50%;
+   }
+ }

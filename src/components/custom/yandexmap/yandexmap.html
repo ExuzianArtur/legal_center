@@ -1,0 +1,65 @@
+<div data-fls-yandexmap class="contacts-section__container">
+  <h2 class="contacts-section__title">Как нас найти</h2>
+
+  <div class="contacts-section__content">
+    <!-- Карта Яндекс -->
+    <div class="yandex-map">
+      <div class="yandex-map__container" id="mapContainer">
+        <!-- Карта будет загружена здесь -->
+      </div>
+      <div class="yandex-map__loading" id="mapLoading">
+        <div class="loading-spinner"></div>
+        <p>Загрузка карты...</p>
+      </div>
+      <div class="yandex-map__error" id="mapError" style="display: none;">
+        <p>❌ Не удалось загрузить карту</p>
+        <button class="yandex-map__retry-btn" id="retryMap">Повторить попытку</button>
+      </div>
+    </div>
+
+    <!-- Информация о контактах -->
+    <div class="contact-info">
+      <div class="contact-info__item">
+        <div class="contact-info__icon">🏢</div>
+        <div class="contact-info__content">
+          <div class="contact-info__label">Адрес</div>
+          <div class="contact-info__value">г. Сочи, ул. Победы, д. 112</div>
+        </div>
+      </div>
+
+
+
+
+      <div class="contact-info__item">
+        <div class="contact-info__icon">🕐</div>
+        <div class="contact-info__content">
+          <div class="contact-info__label">Режим работы</div>
+          <div class="contact-info__value">Пн-Пт: 9:00-17:00</div>
+          <div class="contact-info__value">Сб-Вс: выходной</div>
+        </div>
+      </div>
+
+      <div class="contact-info__item">
+        <div class="contact-info__icon --icon-telephone"></div>
+        <div class="contact-info__content">
+          <div class="contact-info__label">Телефон для связи</div>
+          <div class="contact-info__value">
+            <a href="tel:+79881512012">8(988)151-20-12</a>
+          </div>
+          <div class="contact-info__value">
+            <a href="tel:+79952270121">8(955)227-01-21</a>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Кнопки для получения маршрута -->
+      <div class="route-buttons">
+        <button class="route-button route-button--yandex" onclick="openYandexRoute()">
+          <span class="route-button__icon">🗺️</span>
+          <span class="route-button__text">Маршрут в Яндекс.Картах</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

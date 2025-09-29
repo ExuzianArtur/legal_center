@@ -1,0 +1,223 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  box-shadow: $shadow;
+  transition: all 0.5s easy;
+  background-color: #0a1f3c;
+  ;
+  opacity: 0.9;
+  padding: 20px 0;
+  @media (max-width: toEm($mobile)){
+      position: fixed;
+  }
+
+
+  // .header__container
+  &__container {}
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    @media (max-width: toEm($mobile)){
+    justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    width: 50px;
+    aspect-ratio: 1;
+    flex-shrink: 0;
+    @media (max-width: toEm($mobile)){
+        width: 70px;
+    }
+  }
+
+
+
+}
+
+// .search-form {
+//   &__container {
+//     position: relative;
+//     display: flex;
+//   }
+
+//   &__input {
+//     padding: 12px 45px 12px 15px;
+//     border: 2px solid #2a3f5c;
+//     border-radius: 4px;
+//     background-color: #1a2f4c;
+//     color: #ffffff;
+//     font-family: inherit;
+//     font-size: 14px;
+//     width: 250px;
+//     transition: border-color 0.3s ease, width 0.3s ease;
+//     height: 44px; // Фиксированная высота
+
+//     &:focus {
+//       outline: none;
+//       border-color: #c4a46e;
+//       width: 300px;
+//     }
+
+//     &::placeholder {
+//       color: #a0b0d0;
+//     }
+
+//     @media (max-width: 1200px) {
+//       width: 200px;
+
+//       &:focus {
+//         width: 250px;
+//       }
+//     }
+
+//     @media (max-width: 768px) {
+//       width: 100%;
+
+//       &:focus {
+//         width: 100%;
+//       }
+//     }
+//   }
+
+//   &__button {
+//     position: absolute;
+//     right: 20px; // Уменьшено расстояние от края
+//     top: 2px; // Уменьшено расстояние сверху
+//     bottom: 2px; // Уменьшено расстояние снизу
+//     background: none;
+//     border: none;
+//     cursor: pointer;
+//     padding: 0 12px; // Горизонтальный padding вместо фиксированной ширины
+//     color: #a0b0d0;
+//     transition: color 0.3s ease;
+//     border-radius: 3px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+
+//     &:hover {
+//       color: #c4a46e;
+//     }
+
+//     &:focus {
+//       outline: 2px solid #c4a46e;
+//     }
+//   }
+
+//   &__icon {
+//     display: block;
+//     width: 20px;
+//     height: 20px;
+//   }
+// }
+
+// /* Результаты поиска */
+// .search-results {
+//   position: absolute;
+//   top: 100%;
+//   left: 0;
+//   right: 0;
+//   background-color: #ffffff;
+//   border: 1px solid #e0e0e0;
+//   border-top: none;
+//   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+//   z-index: 1000;
+//   opacity: 0;
+//   visibility: hidden;
+//   transition: opacity 0.3s ease, visibility 0.3s ease;
+//   max-height: 400px;
+//   overflow-y: auto;
+
+//   &.active {
+//     opacity: 1;
+//     visibility: visible;
+//   }
+
+//   &__container {
+//     max-width: 1200px;
+//     margin: 0 auto;
+//     padding: 0 20px;
+//   }
+
+//   &__content {
+//     padding: 15px 0;
+//   }
+
+//   &__item {
+//     padding: 12px 0;
+//     border-bottom: 1px solid #f0f0f0;
+
+//     &:last-child {
+//       border-bottom: none;
+//     }
+
+//     &:hover {
+//       background-color: #f8f9fa;
+//     }
+//   }
+
+//   &__link {
+//     text-decoration: none;
+//     color: #333333;
+//     display: block;
+
+//     &:hover {
+//       color: #0a1f3c;
+//     }
+//   }
+
+//   &__title {
+//     font-weight: 600;
+//     margin-bottom: 5px;
+//     font-size: 16px;
+//   }
+
+//   &__text {
+//     font-size: 14px;
+//     color: #666666;
+//     line-height: 1.4;
+//   }
+
+//   &__no-results {
+//     padding: 20px;
+//     text-align: center;
+//     color: #888888;
+//     font-style: italic;
+//   }
+
+//   &__highlight {
+//     background-color: #fff3cd;
+//     padding: 2px 4px;
+//     border-radius: 2px;
+//   }
+// }
+
+// @media (max-width: 992px) {
+//   .legal-header__container {
+//     position: relative;
+//   }
+
+//   .search-results {
+//     position: absolute;
+//     left: 20px;
+//     right: 20px;
+//     width: auto;
+//   }
+
+//   .search-form__input {
+//     height: 40px; // Меньшая высота для мобильных
+//   }
+
+//   .search-form__button {
+//     right: 15px;
+//     top: 1px;
+//     bottom: 1px;
+//     padding: 0 10px;
+//   }
+// }

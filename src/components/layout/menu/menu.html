@@ -1,0 +1,58 @@
+<div class="header__menu menu">
+	<button type="button" data-fls-menu class="menu__icon icon-menu"><span></span></button>
+	<nav class="menu__body">
+		<ul class="menu__list">
+			<each loop='item in [
+					{  "href": "/src/index.html" ,"ancor": "Главная"},
+					{"href": "#news-section","ancor": "Новости"},
+					{"href": "#services-section","ancor": "Услуги", "dropdown": [
+						{"href": "/src/legal_services.html","ancor": "Юридические услуги", },
+						{"href": "/src/mercury_service.html","ancor": "Услуги ФГИС Меркурий"},
+						{"href": "/src/other_services.html","ancor": "Иные услуги"}
+						]},
+					{"href": "#contact","ancor": "Контакты"}
+				]'>
+				<if condition="'[[active]]' === '[[item.ancor]]'">
+					<li class="menu__item">
+						<if condition="item.dropdown">
+							<a href="[[item.href]]" class="menu__link menu__link--active menu__link--dropdown">[[item.ancor]]</a>
+							<ul class="menu__dropdown">
+								<each loop='subitem in item.dropdown'>
+									<li class="menu__dropdown-item">
+										<a href="[[subitem.href]]" class="menu__dropdown-link">[[subitem.ancor]]</a>
+									</li>
+								</each>
+							</ul>
+						</if>
+						<else>
+							<a href="[[item.href]]" class="menu__link menu__link--active">[[item.ancor]]</a>
+						</else>
+					</li>
+				</if>
+				<else>
+					<li class="menu__item">
+						<if condition="item.dropdown">
+							<a href="[[item.href]]" class="menu__link menu__link--dropdown">[[item.ancor]]</a>
+							<ul class="menu__dropdown">
+								<each loop='subitem in item.dropdown'>
+									<li class="menu__dropdown-item">
+										<a href="[[subitem.href]]" class="menu__dropdown-link">[[subitem.ancor]]</a>
+									</li>
+								</each>
+							</ul>
+						</if>
+						<else>
+							<a href="[[item.href]]" class="menu__link">[[item.ancor]]</a>
+						</else>
+					</li>
+				</else>
+			</each>
+		</ul>
+	</nav>
+</div>
+<!-- 
+<fetch url="@components/layout/menu/menu.json">
+	<each loop='item in response'>
+	</each>
+</fetch>
+-->
